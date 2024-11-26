@@ -1,0 +1,22 @@
+
+report-generator:
+  type: ${REPORT_GEN_REPORT_TYPE:daily}
+  dbRetry:
+    maxRetryAttempts: ${DB_MAX_RETRIES:3}
+    retryBackoffMillis: ${DB_RETRY_BACKOFF_MILLIS:3000}
+
+  articleSelection:
+    maxSuggestedArticles: ${MAX_SUGGESTED_ARTICLES:15}
+
+spring:
+  datasource:
+    url: "jdbc:postgresql://${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB_NAME}?stringtype=unspecified"
+    username: ${POSTGRES_USERNAME}
+    password: ${POSTGRES_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: false

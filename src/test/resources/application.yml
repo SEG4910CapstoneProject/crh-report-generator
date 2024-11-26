@@ -1,0 +1,9 @@
+
+report-generator:
+  type: daily
+  dbRetry:
+    maxRetryAttempts: 10
+    retryBackoffMillis: 100
+
+  articleSelection:
+    maxSuggestedArticles: 15
